@@ -1,12 +1,21 @@
 const http = require("http");
 
+const fs = require("fs");
+
+const homePage = fs.readFileSync("index.html");
+const myassPage = fs.readFileSync("myass.html");
+const yourassPage = fs.readFileSync("yourass.html");
+const ourassPage = fs.readFileSync("ourass.html");
+
 const server = http.createServer((req, res) => {
   if (req.url === "/myass") {
-    return res.end("MY ASS");
+    return res.end(myassPage);
   } else if (req.url === "/yourass") {
-    return res.end("YOUR ASS");
+    return res.end(yourassPage);
   } else if (req.url === "/ourass") {
-    return res.end("OUR ASS");
+    return res.end(ourassPage);
+  } else if (req.url === "/") {
+    return res.end(homePage);
   } else {
     res.writeHead(404);
 
