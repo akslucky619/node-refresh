@@ -8,6 +8,12 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/contact", (req, res) => {
+  res.send({
+    name: "contact page",
+  });
+});
+
 app.listen(3000, () => {
   console.log("listening on port 3000");
 });
