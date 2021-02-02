@@ -1,23 +1,21 @@
+const path = require("path");
+
 const express = require("express");
 
 const app = express();
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  res.send({
-    name: "home page",
-  });
+  res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
-app.get("/contact", (req, res) => {
-  res.send({
-    name: "contact page",
-  });
+app.get("/yourass", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "yourass.html"));
 });
 
 app.get("/myass", (req, res) => {
-  res.send({
-    name: "myass page",
-  });
+  res.sendFile(path.resolve(__dirname, "myass.html"));
 });
 
 app.listen(3000, () => {
